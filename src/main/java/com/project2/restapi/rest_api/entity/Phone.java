@@ -7,8 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.project2.restapi.enums.PhoneType;
-
+import com.project2.restapi.rest_api.enums.PhoneType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

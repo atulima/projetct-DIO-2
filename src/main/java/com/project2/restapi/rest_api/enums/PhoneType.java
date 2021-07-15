@@ -1,4 +1,4 @@
-package com.project2.restapi.enums;
+package com.project2.restapi.rest_api.enums;
 
 
 import lombok.AllArgsConstructor;
