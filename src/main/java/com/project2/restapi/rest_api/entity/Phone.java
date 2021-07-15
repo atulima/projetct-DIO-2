@@ -7,18 +7,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.project2.restapi.enums.PhoneType;
+import com.project2.restapi.rest_api.enums.PhoneType;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Getter
+@Builder
+@Data
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 
 public class Phone {
     @Id

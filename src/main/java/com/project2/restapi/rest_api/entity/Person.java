@@ -28,16 +28,16 @@ public class Person {
     @GeneratedValue
      private Long id;
 
-     @Column(nullable = false)
+     @Column(nullable = true)
      private String firstName;
 
-     @Column(nullable = false)
+     @Column(nullable = true)
      private String lastName;
 
-     @Column(nullable = false, unique = true)
+     @Column(nullable = true, unique = true)
      private String cpf;
 
-     @Column(nullable = false)
+     @Column(nullable = true)
      private LocalDate birthDate;
 
      @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
