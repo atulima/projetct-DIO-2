@@ -1,18 +1,18 @@
-// package com.project2.restapi.rest_api.controller;
+package com.project2.restapi.rest_api.controller;
 
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
-// @RestController
-// @RequestMapping("/api/v1/people")
-// public class PersonController {
+@RestController
+@RequestMapping("/api/v1/people")
+public class PersonController {
     
-//     @GetMapping
-//     public String getBook() {
-//         return "API Test!";
-//     }
+    @GetMapping
+    public String getBook() {
+        return "API Test!";
+    }
     
 
-// }
+}
