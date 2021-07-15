@@ -1,5 +1,8 @@
 package com.project2.restapi.rest_api.controller;
 
+import javax.validation.Valid;
+
+import com.project2.restapi.rest_api.dto.request.PersonDTO;
 import com.project2.restapi.rest_api.dto.response.MessageResponseDTO;
 import com.project2.restapi.rest_api.entity.Person;
 import com.project2.restapi.rest_api.repository.PersonRepository;
@@ -25,9 +28,14 @@ public class PersonController {
     }
 
    @PostMapping
-   public MessageResponseDTO createPerson(@RequestBody Person person){
-       return personService.createPerson(person);
+   public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO){
+       return personService.createPerson(personDTO);
    }
+    
+//    @PostMapping
+//    public MessageResponseDTO createPerson(@RequestBody Person person){
+//        return personService.createPerson(person);
+//    }
     
 
 }
