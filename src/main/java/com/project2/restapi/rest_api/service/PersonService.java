@@ -1,9 +1,6 @@
 package com.project2.restapi.rest_api.service;
 
-import java.lang.StackWalker.Option;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.project2.restapi.rest_api.dto.request.PersonDTO;
@@ -53,7 +50,7 @@ public class PersonService {
     }
 
     public PersonDTO findaById(Long id) throws PersonNotFoundException {
-        Person person = personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
+        Person person = verifyIfExists(id);
         // Same code for the function above
 
         // Optional<Person> oprtionalPerson = personRepository.findById(id);
@@ -65,7 +62,12 @@ public class PersonService {
     }
 
     public void deleteById(Long id) throws PersonNotFoundException {
-        personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
+        verifyIfExists(id);
         personRepository.deleteById(id);
     }
+    public Person verifyIfExists(Long id) throws PersonNotFoundException{
+        return personRepository.findById(id)
+            .orElseThrow(() -> new PersonNotFoundException(id));
+    }
 }
+
