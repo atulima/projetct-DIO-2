@@ -1,5 +1,7 @@
 package com.project2.restapi.rest_api.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.project2.restapi.rest_api.dto.request.PersonDTO;
@@ -36,6 +38,8 @@ public class PersonController {
 //    public MessageResponseDTO createPerson(@RequestBody Person person){
 //        return personService.createPerson(person);
 //    }
-    
-
+    @GetMapping
+    public List<PersonDTO> listAll(){
+        return personService.listAll();
+    }
 }
