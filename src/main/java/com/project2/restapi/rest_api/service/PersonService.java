@@ -1,11 +1,15 @@
 package com.project2.restapi.rest_api.service;
 
+import java.lang.StackWalker.Option;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.project2.restapi.rest_api.dto.request.PersonDTO;
 import com.project2.restapi.rest_api.dto.response.MessageResponseDTO;
 import com.project2.restapi.rest_api.entity.Person;
+import com.project2.restapi.rest_api.exception.PersonNotFoundException;
 import com.project2.restapi.rest_api.mapper.PersonMapper;
 import com.project2.restapi.rest_api.repository.PersonRepository;
 
@@ -46,5 +50,17 @@ public class PersonService {
         return allPeople.stream()
             .map(personMapper::toDTO)
             .collect(Collectors.toList());
+    }
+
+    public PersonDTO findaById(Long id) throws PersonNotFoundException {
+        Person person = personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
+        // Same code for the function above
+
+        // Optional<Person> oprtionalPerson = personRepository.findById(id);
+        // if(oprtionalPerson.isEmpty()){
+        //     throw new PersonNotFoundException(id); 
+        // }
+        return personMapper.toDTO(person);
+        
     }
 }
